@@ -25,6 +25,20 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Monthly_Gross__c</fullName>
+        <externalId>false</externalId>
+        <formula>MonthlyGross__c + MonthlyBonus__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Monthly Gross</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <recordTypes>
         <fullName>FreeLancer_Page_Lageout</fullName>
         <active>true</active>
