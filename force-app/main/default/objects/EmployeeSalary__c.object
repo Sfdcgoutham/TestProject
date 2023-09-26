@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>CTC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Annual_Gross__c + (12 *  Gratuity__c ) + (12  *  PF_company__c  ) + (12 * Insurance__c ) + Retention_bonus__c + annual_performance_bonus__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CTC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <recordTypes>
         <fullName>Client_Contact</fullName>
         <active>true</active>

@@ -1,0 +1,32 @@
+<template>
+    <c-l-c-t_view-appraisal-form eval-record-id={evlRecordId} ></c-l-c-t_view-appraisal-form>
+    <lightning-layout >
+        <!-- Row 1 -->
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="12">
+          <div >
+            <lightning-textarea label="KPI Name"   value={kpiName} name="kpiname" onchange={handlerAddhoc} required class="validity" disabled ></lightning-textarea>
+          </div>  
+          <div >
+              <lightning-textarea label="Justification"   value={justificationAddhoc} name="justification" onchange={handlerAddhoc} required class="validity" disabled></lightning-textarea>
+
+            </div>
+            <div >
+              <lightning-textarea label="Challenges"  value={challengesAddhoc} name="challenges" onchange={handlerAddhoc} required class="validity" disabled></lightning-textarea>
+
+            </div>
+            <div >
+              <lightning-combobox label="Appraisee Rating" name="selfRating"
+              placeholder="Select value"
+              options={statusOptions}
+              onchange={handlerAddhoc}
+              value={selfRatingAddhoc} required class="validity" disabled>
+              </lightning-combobox>  
+            </div>
+            <div >
+              <lightning-input label="Appraisee Weightage (Should be between 0 to 100)" 
+              onchange={handlerAddhoc} value={weightageAddhoc} name="weightage" required class="validity" disabled></lightning-input>
+            </div>
+            
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

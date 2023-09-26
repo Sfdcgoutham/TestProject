@@ -30,6 +30,7 @@
         <members>Contact.Freelancer_Employment_Type__c</members>
         <members>Contact.Reviewer__c</members>
         <members>Contact.SubBand__c</members>
+        <members>EmployeeSalary__c.CTC__c</members>
         <members>Evaluation__c.AppraisalCycle__c</members>
         <members>Evaluation__c.AppraiserComments__c</members>
         <members>Evaluation__c.AppraiserFeedback__c</members>
@@ -61,6 +62,7 @@
         <members>Evaluation__c.SubmittedDate__c</members>
         <members>Evaluation__c.WhatCanBeDoneBetter__c</members>
         <members>Evaluation__c.WhatHappenedWell__c</members>
+        <members>Payslip__c.Freelancer_Employment_Type__c</members>
         <members>Task_Tracker__c.Active__c</members>
         <members>Task_Tracker__c.Appraiser_Rating__c</members>
         <members>Task_Tracker__c.Appraiser_Weightage_for_Each_KPIs__c</members>
@@ -400,6 +402,7 @@
         <members>lCT_empPersonalDetails</members>
         <members>lCT_individualAppraisalForm</members>
         <members>lCT_pmsAppraiseeTasks</members>
+        <members>lCT_requestedKpis</members>
         <members>lCT_teamsAppraisalForm</members>
         <members>lCT_viewAppraisalForm</members>
         <members>lctAllAppraisalForms</members>
@@ -431,7 +434,6 @@
     <types>
         <members>Evaluation__c.Appraisal_Form</members>
         <members>Evaluation__c.Feedback_Form</members>
-        <members>Request__c.requrest1</members>
         <members>Request__c.requrest1</members>
         <members>Task_Tracker__c.AppraiseeTasks</members>
         <members>Task_Tracker__c.KPI</members>
