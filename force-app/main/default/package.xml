@@ -66,6 +66,7 @@
         <members>Evaluation__c.SubmittedDate__c</members>
         <members>Evaluation__c.WhatCanBeDoneBetter__c</members>
         <members>Evaluation__c.WhatHappenedWell__c</members>
+        <members>PayslipMaster__c.Total_Advace__c</members>
         <members>Payslip__c.Freelancer_Employment_Type__c</members>
         <members>Task_Tracker__c.Active__c</members>
         <members>Task_Tracker__c.Appraiser_Rating__c</members>
