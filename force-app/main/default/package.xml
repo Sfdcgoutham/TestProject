@@ -68,6 +68,7 @@
         <members>Evaluation__c.WhatHappenedWell__c</members>
         <members>PayslipMaster__c.Total_Advace__c</members>
         <members>Payslip__c.Freelancer_Employment_Type__c</members>
+        <members>Payslip__c.Monthly_Gross__</members>
         <members>Task_Tracker__c.Active__c</members>
         <members>Task_Tracker__c.Appraiser_Rating__c</members>
         <members>Task_Tracker__c.Appraiser_Weightage_for_Each_KPIs__c</members>
