@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <fullName>FreeLancer_Page_Lageout</fullName>
+        <active>true</active>
+        <label>FreeLancer Page Lageout</label>
+        <picklistValues>
+            <picklist>Freelancer_Employment_Type__c</picklist>
+            <values>
+                <fullName>Fixed Salary%2C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hourly Basis</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>employee_type__c</picklist>
+            <values>
+                <fullName>CONSULTANT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FREELANCER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FULLTIME</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>status__c</picklist>
+            <values>
+                <fullName>GENERATED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LOCKED</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

@@ -1,0 +1,106 @@
+<template>
+    <template if:true={editAppraisal}>
+        <div class="">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <span>
+                        <div class=" lgc-bg">
+                            <lightning-input label="Employee Name" value={employeeName} variant="label-inline"
+                                disabled></lightning-input>
+                            <lightning-input label="Appraisal Name" value={appraisalName} variant="label-inline"
+                                disabled></lightning-input>
+
+                            <lightning-input label="Submitted Date" placeholder='' value={submittedDate}
+                                variant="label-inline" disabled></lightning-input>
+                            <lightning-input label="Status" value={appraisalStatus} variant="label-inline"
+                                disabled></lightning-input>
+                            <!-- <lightning-input type="checkbox" label="Conflict Flag" value={conflictFlag} variant="label-inline"
+                                disabled></lightning-input> -->
+                            <lightning-textarea label="Closure Comments" name="ClosureComments" value={ClosureComments}
+                                variant="label-inline" onchange={inputHandler} class="textAreaCss"
+                                disabled></lightning-textarea>
+
+                            <lightning-textarea label="Grievance Comment" name="GrievanceComment"
+                                value={GrievanceComment} variant="label-inline" onchange={inputHandler}
+                                class="textAreaCss" disabled></lightning-textarea>
+
+                            <lightning-input type="checkbox" label="Eligibile For Promotion"
+                                checked={eligibilityForPromotion} name="eligibilityForPromotion" variant="label-inline"
+                                onchange={inputHandler} disabled={signedTemplate}></lightning-input>
+
+                            <template if:true={eligibilityForPromotion}>
+                                <lightning-textarea label="Justification For Eligibility"
+                                    name="justificationForEligibility" value={justificationForEligibility}
+                                    variant="label-inline" onchange={inputHandler} class="textAreaCss"
+                                    disabled={signedTemplate} required></lightning-textarea>
+
+                            </template>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <span>
+                        <template if:true={editAppraisal}>
+                            <lightning-input label="Overall Rating" value={overallRating} name="overallRating"
+                                variant="label-inline" type="number" onchange={inputHandler} disabled
+                                class="inputCss"></lightning-input>
+
+                            <lightning-textarea label="Appraiser Comments" value={overallComments}
+                                name="overallComments" variant="label-inline" onchange={inputHandler} required
+                                class="textAreaCss" disabled={signedTemplate}></lightning-textarea>
+
+
+                            <lightning-textarea label="What Happened Well" value={whatHappenedWell}
+                                name="whatHappenedWell" variant="label-inline" onchange={inputHandler}
+                                class="textAreaCss" disabled={signedTemplate}></lightning-textarea>
+
+                            <lightning-textarea label="What Can Be Done Better" value={whatCanBeDoneBetter}
+                                name="whatCanBeDoneBetter" variant="label-inline" onchange={inputHandler}
+                                class="textAreaCss" disabled={signedTemplate}></lightning-textarea>
+
+                            <lightning-input type="checkbox" label="PRD With Appraisee Is Done"
+                                checked={prdWithAppraiserIsDone} name="prdWithAppraiserIsDone" variant="label-inline"
+                                onchange={inputHandler} disabled={signedTemplate}></lightning-input>
+
+                            <template if:true={prdWithAppraiserIsDone}>
+                                <lightning-input type="date" label="PRD Date" value={prdDate} name="prdDate"
+                                    variant="label-inline" onchange={inputHandler} required class="textAreaCss"
+                                    disabled={signedTemplate}></lightning-input>
+                                <lightning-input type="number" label="PRD Duration (In Mins)" value={prdTime}
+                                    name="prdTime" variant="label-inline" onchange={inputHandler} required
+                                    class="textAreaCss" disabled={signedTemplate}></lightning-input>
+                            </template>
+                        </template>
+                    </span>
+                </div>
+            </div>
+
+            <template if:true={editAppraisal}>
+                <div class="slds-align_absolute-center">
+                    <template if:true={signedTemplate}>
+                        <template if:true={status}>
+                            <lightning-button variant="brand-outline" label="Back" onclick={handleBack1}
+                                icon-name="utility:back"></lightning-button>
+                        </template>
+                    </template>
+                    <template if:false={submitStatus}>
+                        <template if:false={status}>
+                            <lightning-button variant="brand-outline" label="Cancel" onclick={handleBack1}
+                                icon-name="utility:close"></lightning-button>&nbsp;&nbsp;
+                            <lightning-button variant="brand-outline" label="Save" onclick={handleSave}
+                                icon-name="utility:save"></lightning-button>&nbsp;&nbsp;
+                            <lightning-button variant="brand-outline" label="Sign"
+                                onclick={handleSignedByAppraiser}></lightning-button>
+                        </template>
+                    </template>
+                </div>
+            </template>
+        </div><br>
+        <template lwc:if={showKPI}>
+        <c-l-c-t_appraisal-form array-data={savedKPIdata} eval-record-id={recordId} employee-id={employeeId}
+            is-appraisee={isAppraisee} selected-role={selectedRole} is-appraiser={isAppraiser} is-reviewer={isReviewer}
+            selected-status={selectedStatus} oncallform={handleFinal}>
+        </c-l-c-t_appraisal-form>
+    </template>
+    </template>
+</template>

@@ -1,0 +1,108 @@
+<template>
+
+    <div class="slds-grid slds-wrap slds-p-top_small">
+        <!-- <template for:each={detailsdata} for:item="article"> -->
+        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-right_small">
+            <span>
+                <lightning-input label="Name" type="text" value={name} variant="label-inline"
+                    disabled></lightning-input>
+                <lightning-input label="Employee ID" type="text" value={employeeIdNo} variant="label-inline"
+                    disabled></lightning-input>
+                <template lwc:if={isAppraisee}>
+                    <!-- <lightning-input label="Appraiser" type="text" value={appraiserName} variant="label-inline"
+                        disabled></lightning-input> -->
+
+                    <!-- <template if:true={article.DelegatedAppraiser__c}> -->
+                    <!-- <lightning-input label="Delegated Appraiser" type="text" value={delegatedAppraiserName}
+                        variant="label-inline" disabled></lightning-input> -->
+                    <!-- <lightning-input label="Reports To" type="text" value={reportsToName}
+                                    variant="label-inline" disabled></lightning-input> -->
+                </template>
+                <template lwc:elseif={isAppraiser}>
+                    <!-- <template if:true={article.DelegatedAppraiser__c}> -->
+                  
+                    <!-- <lightning-input label="Reports To" type="text" value={reportsToName} variant="label-inline"
+                        disabled></lightning-input> -->
+                </template>
+
+                <lightning-input label="Appraiser" type="text" value={appraiserName} variant="label-inline"
+                    disabled></lightning-input>
+               
+                <lightning-input label="Band" type="text" value={band} variant="label-inline"
+                    disabled></lightning-input>
+                <lightning-input label="SubBand" type="text" value={subBand} variant="label-inline"
+                    disabled></lightning-input>
+                <lightning-input label="Date of Joining " type="date" value={employeeJoiningDate} variant="label-inline"
+                    disabled></lightning-input>
+                <!-- <lightning-input label="Sub Bnad" type="text" value={name} variant="label-inline"
+                                disabled></lightning-input> -->
+
+                <!-- </template> -->
+                <!-- <template if:false={article.DelegatedAppraiser__c}>
+                                <lightning-input label="Delegated Appraiser" type="text" value="" variant="label-inline"
+                                    disabled></lightning-input>
+                            </template> -->
+
+                <!-- <template if:true={article.ReportsTo}> -->
+
+                <!-- <lightning-input label="Mobile" type="text" value={MobilePhone}
+                                    variant="label-inline" disabled></lightning-input> -->
+
+                <!-- </template> -->
+                <!-- <template if:false={article.ReportsTo}>
+                                <lightning-input label="Reports To" type="text" value="" variant="label-inline"
+                                    disabled></lightning-input>
+                            </template> -->
+
+            </span>
+        </div>
+
+
+        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_1-of-12 slds-size_1-of-12 slds-p-left_small">
+            <span>
+                <lightning-input label="Experience in Cloudtaru(In months)" type="text" value={experienceInCloudtaru}
+                    variant="label-inline" disabled></lightning-input>
+                <lightning-input label="Designation" type="text" value={designation} variant="label-inline"
+                    disabled></lightning-input>
+
+                <lightning-input label="Reviewer" type="text" placeholder="" value={reviewerName} variant="label-inline"
+                    disabled></lightning-input>
+                <!-- <template if:true={article.DelegatedReviewer__c}> -->
+                    <!-- <template lwc:if={isAppraisee}>
+                        <lightning-input label="Delegated Reviewer" type="text" value={delegatedReviewerName}
+                        variant="label-inline" disabled></lightning-input>
+                    </template> -->
+                    <!-- <template lwc:elseif={isAppraiser}>
+                        <lightning-input label="Delegated Reviewer" type="text" value={delegatedReviewerName}
+                        variant="label-inline" disabled></lightning-input>
+                    </template> -->
+                <!-- <template if:false={isAppraisee}>
+                    <template if:true={isAppraiser}>
+                        <lightning-input label="Delegated Reviewer" type="text" value={delegatedReviewerName}
+                            variant="label-inline" disabled></lightning-input>
+                    </template>
+                </template> -->
+                   <!-- <lightning-input label="Reports To" type="text" value={reportsToName} variant="label-inline"
+                    disabled></lightning-input> -->
+                    <lightning-input label="Delegated Reviewer" type="text" value={delegatedReviewerName}
+                    variant="label-inline" disabled></lightning-input>
+                    <lightning-input label="Delegated Appraiser" type="text" value={delegatedAppraiserName}
+                    variant="label-inline" disabled></lightning-input>
+                  
+                <!-- </template> -->
+                <!-- <template if:false={article.DelegatedReviewer__c}>
+                                <lightning-input label="Delegated Reviewer" type="text" value="" variant="label-inline"
+                                    disabled></lightning-input>
+                            </template> -->
+                <!-- <lightning-input label="Date of Joining " type="date" value={employeeJoiningDate}
+                            variant="label-inline" disabled></lightning-input> -->
+                <template if:false={isAppraisee}>
+                    <!-- <lightning-input label="Email" type="text" value={email} variant="label-inline"
+                                disabled></lightning-input> -->
+                </template>
+            </span>
+        </div>
+        <!-- </template> -->
+    </div>
+
+</template>

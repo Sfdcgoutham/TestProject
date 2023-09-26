@@ -1,0 +1,43 @@
+<template>
+    <div class="slds-m-top_medium boxAlign">
+        <lightning-tabset active-tab-value="dashboard" variant="scoped">
+            <lightning-tab label="Dashboard" value="dashboard" icon-name="standard:dashboard_ea">
+                <!-- <lightning-accordion allow-multiple-sections-open active-section-name="dashboard">
+                <lightning-accordion-section name="dashboard" label="Dashboard" class="sectionCard">
+                    <c-all-appraisal-forms employee-id={employeeId}></c-all-appraisal-forms>
+                </lightning-accordion-section></lightning-accordion> -->
+                <template lwc:if={isAppraiser}>
+                    <c-lct_appraisal-forms employee-id={employeeId} selected-role={selectedRole} 
+                    is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct_appraisal-forms>
+                </template>
+                <template lwc:if={isReviewer}>
+                    <c-lct-all-appraisal-forms employee-id={employeeId} selected-role={selectedRole} 
+                    is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct-all-appraisal-forms>
+                    
+                </template>
+            </lightning-tab>
+
+            <lightning-tab label="Inbox" value="inbox" icon-name="standard:email">
+                <!-- <lightning-accordion allow-multiple-sections-open active-section-name="inbox">
+                <lightning-accordion-section name="inbox" label="Inbox" class="sectionCard"> -->
+                    <template lwc:if={isAppraiser}>
+                        <c-lct_appraiser-pending-appraisals employee-id={employeeId}   is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer} selected-role={selectedRole} ></c-lct_appraiser-pending-appraisals>
+                    </template>
+
+                    <template lwc:if={isReviewer}>
+                        <!-- <c-lct-reviewer-pending-appraisals employee-id={employeeId} selected-role={selectedRole} 
+                        is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct-reviewer-pending-appraisals> -->
+                        <c-lct-appraisal-form employee-id={employeeId} selected-role={selectedRole} 
+                    is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct-appraisal-form>
+                    </template>
+                <!-- </lightning-accordion-section></lightning-accordion> -->
+            </lightning-tab>
+
+            <lightning-tab label="Personal Details" value="personalDetails" icon-name="standard:person_name">
+                <lightning-accordion allow-multiple-sections-open >
+                    <c-l-c-t_emp-personal-details employee-id={employeeId} email={email}></c-l-c-t_emp-personal-details>
+                </lightning-accordion>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

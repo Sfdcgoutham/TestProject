@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>when form is Initated send email to appraisee</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Initated Appraisal Cycle</name>
+    <style>none</style>
+    <subject>Initated Appraisal Cycle</subject>
+    <textOnly>Initated Appraisal Cycle
+
+Dear {!AppraiseeName} ,
+
+You are Succesfully Initated the Appraisal form for the current cycle {CycleName}. Please fill the form with accurate details and submit to the Appraiser{AppraiserName} within the corresponding {enddate}.
+
+Thank &amp; Regards,
+
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

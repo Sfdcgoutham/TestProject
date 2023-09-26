@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Notification to  Appraisee</name>
+    <style>none</style>
+    <subject>Notification to Eligible Appraisee</subject>
+    <textOnly>Time for Appraisal Cycle
+
+Dear All,
+
+
+I hope this email finds you in good health and spirits. As we move ahead in the year, it is time for us to kick off our annual appraisal cycle. This is an important time for both the company and our employees as we assess our progress over the past year and set goals for the upcoming year.
+
+The appraisal process is an opportunity for you to reflect on your performance, set goals for the future, and receive feedback from your manager. It is also a time for the company to acknowledge your contributions and determine compensation and career advancement opportunities.
+
+Below is the currrent Appraisal Cycle details:
+
+Start Date-{!StartDate}
+
+End Date -{!EndDate}
+
+We also understand that this process can be a little stressful and daunting. However, we encourage you to view it as an opportunity for growth and development. We believe that an honest and constructive appraisal discussion will help you identify areas of improvement and achieve your professional goals.
+
+If you have any questions or concerns, please do not hesitate to reach out to your manager or the HR department. We wish you all the best for the upcoming appraisal cycle.
+
+Thanks &amp; Regards,
+
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

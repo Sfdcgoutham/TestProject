@@ -1,0 +1,136 @@
+<template>
+    <template for:each={showRecords} for:item="kpiData">
+        <div class="slds-p-top_small slds-m-vertical_small slds-m-horizontal_small background" key={kpiData.Id}>
+            <!-- <template for:each={kpiData.Fields} for:item="field">
+                <div key={field.Id}> -->
+            <lightning-accordion allow-multiple-sections-open active-section-name="">
+                <lightning-accordion-section class="slds-card_boundary" label={kpiData.KPI_Name__c} data-kpiid={kpiData.Id} onclick={getKPIId}>
+
+                    <lightning-card title={kpiData.KPI_Name__c} icon-name="standard:goals">
+
+                        <lightning-button-group slot="actions" class="slds-m-right_small slds-p-top_none">
+                            <lightning-button-icon name="save" data-kpiid={kpiData.Id} icon-name="utility:save"
+                                variant="border-filled" alternative-text="Save"
+                                onclick={handleSave}></lightning-button-icon>
+                           <template if:true={showDelete}>
+                               
+                            <lightning-button-icon name="delete" data-kpiid={kpiData.Id} icon-name="utility:delete"
+                                variant="border-filled" alternative-text="Delete"
+                                onclick={handleDelete}></lightning-button-icon> 
+                           
+                        </template>
+                        </lightning-button-group>
+
+                        <div class="slds-var-p-horizontal_small">
+                            <strong>Objectives and Key Results:</strong>&nbsp;<lightning-formatted-text
+                                value={kpiData.Objectives_And_Key_Results__c}></lightning-formatted-text>
+
+
+                            <template for:each={kpiData.Fields} for:item="field">
+                                <div key={field.Id} class="slds-p-top_small">
+                                    <div class="error-message1"></div>
+                                    <template if:true={field.TextArea__c}>
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <span class="textAlign">{field.FieldLabel__c}</span>
+                                                <template if:true={field.Mandatory__c}>
+                                                <span class="highlight">*</span>
+                                                </template>
+                                            </div>
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <lightning-textarea data-kpiid={kpiData.Id} variant="label-hidden"
+                                                    data-field-api={field.FieldAPI__c} name="justification"
+                                                    placeholder="type here..." value={field.FieldValue}
+                                                    onchange={handleChange} disabled={field.Editable__c} class={kpiData.Id}
+                                                    required={field.Mandatory__c} ></lightning-textarea>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <div class="error-message2"></div>
+
+                                    <!-- <div class="error-message1"></div>
+                            <lightning-textarea data-kpiid={kpiData.Id} name="Challenges" label="Challenges faced"
+                                placeholder="type here..." value={kpiData.Challenges__c}
+                                onchange={challengesHandler}></lightning-textarea>
+                            <div class="error-message2"></div> -->
+
+                                    <!-- <div class="slds-p-around_small slds-m-bottom_small">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col">
+                                        <span>
+                                        <div> -->
+
+                                    <template if:true={field.Text__c}>
+
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <span class="textAlign">{field.FieldLabel__c}</span>
+                                                <template if:true={field.Mandatory__c}>
+                                                    <span class="highlight">*</span>
+                                                </template>
+                                            </div>
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <lightning-input data-kpiid={kpiData.Id}
+                                                    data-field-api={field.FieldAPI__c} value={field.FieldValue}
+                                                    variant="label-hidden" disabled={field.Editable__c}  class={kpiData.Id}
+                                                    onchange={handleChange} required={field.Mandatory__c}  ></lightning-input>
+                                            </div>
+                                        </div>
+                                    </template>
+
+                                    <template if:true={field.Picklist__c}>
+
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <span class="textAlign">{field.FieldLabel__c}</span>
+                                                <template if:true={field.Mandatory__c}>
+                                                    <span class="highlight">*</span>
+                                                </template>
+                                            </div>
+                                            <div class="slds-col slds-size_2-of-4">
+                                                <lightning-combobox data-kpiid={kpiData.Id}
+                                                    data-field-api={field.FieldAPI__c} value={field.FieldValue}  class={kpiData.Id}
+                                                    name="rating" variant="label-hidden" placeholder="Select an Option"
+                                                    options={statusOptions} onchange={handleChange}
+                                                    disabled={field.Editable__c} required={field.Mandatory__c} ></lightning-combobox>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <div class="error-message3"></div>
+                                    <!-- </div>
+                                        </span>
+                                    </div> -->
+                                    <!-- <div class="slds-col">
+                                        <span>
+                                            <div>
+                                                <lightning-input label="Min Weightage" value={kpiData.MinWeightage__c}
+                                                    variant="label-inline" readonly="true"></lightning-input>
+                                                <lightning-input label="Weightage" value={kpiData.Weightage__c} name="weightage"
+                                                    required variant="label-inline"
+                                                    onchange={weightageValueHandler}></lightning-input>
+                                                <div class="error-message4"></div>
+                                            </div>
+                                        </span>
+                                    </div> -->
+                                    <!-- </div>
+                            </div> -->
+                                </div>
+                            </template>
+
+                            <c-l-c-t_-file-upload kpi-record-id={kpiRecId} eval-record-id={evalRecordId} is-appraisee={isAppraisee} initiated-status={selectedStatus} employee-id={employeeId}></c-l-c-t_-file-upload>
+                           
+                        </div>
+                    </lightning-card>
+                </lightning-accordion-section>
+            </lightning-accordion>
+            <!-- </div>
+            </template> -->
+        </div>
+    </template>
+
+    <!-- <div class="slds-modal__footer backgroundfooter slds-clearfix" slot="footer" >
+    <lightning-button label="Back" slot="actions" variant="neutral" onclick={backAction}></lightning-button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <lightning-button label="Save" slot="actions" variant="brand"></lightning-button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <lightning-button label="Submit" slot="actions" variant="brand"></lightning-button>     
+</div> -->
+</template>

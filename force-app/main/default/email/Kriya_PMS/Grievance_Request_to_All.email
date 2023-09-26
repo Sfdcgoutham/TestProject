@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grievance Request</title>
+</head>
+<body>
+<p> {!AppraiseeName} has requested for the Grievance regarding the final rating and feedback provided by their Reviewer for the current cycle Appraisal Form.
+Kindly go through the details and take corresponding actions.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

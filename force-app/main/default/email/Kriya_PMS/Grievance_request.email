@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grievance Request</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>Your Grievance request has been submitted to the HR.
+Kindly wait the further details.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signed By Appraiser</title>
+</head>
+<body>
+<p>Dear {!AppraiserName} ,</p>
+<p>{!AppraiseeName} has Submitted their Appraisal form to you.
+Kindly go through it and provide the feedback and comments for their Appraisal within the corresponding end date {!EndDate}.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

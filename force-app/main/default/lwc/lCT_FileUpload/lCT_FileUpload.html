@@ -1,0 +1,55 @@
+<template>
+    <template lwc:if={isAppraisee}>
+        <template lwc:if={uploadButtion}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_3-of-12">
+                    <lightning-input type="file" data-kpiid={kpiRecordId} label="Attachment"
+                        accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf" onchange={openfileUpload}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_9-of-12 slds-m-top_x-large">
+                    <template if:true={fileData}>
+                        {fileData.fileName}
+                    </template>
+                </div>
+            </div><br>
+        </template>
+    </template>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <span>
+                <template lwc:if={isAppraisee}>
+                    <template lwc:if={uploadButtion}>
+                        <lightning-button label="Upload" data-kpiid={kpiRecordId} variant="brand"
+                        onclick={handleuploaded}></lightning-button>
+                    </template>
+                </template>&nbsp;&nbsp;
+                 <div class="slds-p-left_medium">
+                 <lightning-input label="Status" value={kpiStatusValue} variant="label-inline"
+                                disabled ></lightning-input>
+                                </div>
+                <lightning-button label="View Attachments" data-kpiid={kpiRecordId} variant="brand"
+                onclick={getKPIRecordId}></lightning-button>
+                <template  if:true={shouldShowTransferButton}>
+                <c-lct_-transfer-kpi   kpi-record-id={kpiRecordId} onupdatestatus={updateStatus} ></c-lct_-transfer-kpi>
+                </template>
+            </span>
+        </div>
+        <!-- <div class="slds-col">
+            <span><template lwc:if={accLink}>
+                <div align="right" class="slds-m-top_small">
+                    <a href={accLink} download><b>Download the file</b></a>
+                </div>
+            </template></span>
+        </div> -->
+    </div>
+
+    <template lwc:if={showDownload}>
+        <lightning-card>
+            <lightning-datatable key-field="id" data={attachmentsData} columns={columns} onrowaction={handleRowAction}
+                hide-checkbox-column="true" class="slds-table_header-fixed_container slds-scrollable_x slds-border_top">
+            </lightning-datatable>
+        </lightning-card>
+    </template>
+</template>

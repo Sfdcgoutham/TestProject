@@ -1,0 +1,14 @@
+.badge-success{
+    cursor: pointer;
+    background-color: #C0DDF3;
+    /* background-color: rgb(194, 194, 194); */
+}  
+.badge-all-onclick{
+    background-color: #0176D3;
+    color: white;
+    cursor: context-menu;
+}
+
+.pointercls{
+    cursor: pointer;
+}

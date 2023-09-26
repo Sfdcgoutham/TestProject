@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>AppraisalCycle__c</fullName>
+        <externalId>false</externalId>
+        <label>Appraisal Cycle</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Appraiser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Appraiser</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Master (Appraiser)</relationshipLabel>
+        <relationshipName>Employee_Master1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Band__c</fullName>
+        <externalId>false</externalId>
+        <label>Band</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Band B</fullName>
+                    <default>false</default>
+                    <label>Band B</label>
+                </value>
+                <value>
+                    <fullName>Band C</fullName>
+                    <default>false</default>
+                    <label>Band C</label>
+                </value>
+                <value>
+                    <fullName>Band E</fullName>
+                    <default>false</default>
+                    <label>Band E</label>
+                </value>
+                <value>
+                    <fullName>Band M</fullName>
+                    <default>false</default>
+                    <label>Band M</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DelegatedAppraiser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Delegated Appraiser</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Master (Delegated Appraiser)</relationshipLabel>
+        <relationshipName>Employee_Master3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DelegatedReviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Delegated Reviewer</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Master (Delegated Reviewer)</relationshipLabel>
+        <relationshipName>Employee_Master4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Designation__c</fullName>
+        <externalId>false</externalId>
+        <label>Designation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Band__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>ASSOCIATE CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>ASSOCIATE CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>ASSOCIATE DIRECTOR</fullName>
+                    <default>false</default>
+                    <label>ASSOCIATE DIRECTOR</label>
+                </value>
+                <value>
+                    <fullName>ASSOCIATE MANAGER</fullName>
+                    <default>false</default>
+                    <label>ASSOCIATE MANAGER</label>
+                </value>
+                <value>
+                    <fullName>AVP(ASSOCIATE VICE PRESIDENT)</fullName>
+                    <default>false</default>
+                    <label>AVP(ASSOCIATE VICE PRESIDENT)</label>
+                </value>
+                <value>
+                    <fullName>CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>DIRECTOR</fullName>
+                    <default>false</default>
+                    <label>DIRECTOR</label>
+                </value>
+                <value>
+                    <fullName>DIRECTOR - HUMAN RESOURCES</fullName>
+                    <default>false</default>
+                    <label>DIRECTOR - HUMAN RESOURCES</label>
+                </value>
+                <value>
+                    <fullName>EXECUTIVE</fullName>
+                    <default>false</default>
+                    <label>EXECUTIVE</label>
+                </value>
+                <value>
+                    <fullName>EXECUTIVE VP</fullName>
+                    <default>false</default>
+                    <label>EXECUTIVE VP</label>
+                </value>
+                <value>
+                    <fullName>GROUP PROJECT MANAGER</fullName>
+                    <default>false</default>
+                    <label>GROUP PROJECT MANAGER</label>
+                </value>
+                <value>
+                    <fullName>GROUP QA MANAGER</fullName>
+                    <default>false</default>
+                    <label>GROUP QA MANAGER</label>
+                </value>
+                <value>
+                    <fullName>INDUSTRY PRINCIPAL</fullName>
+                    <default>false</default>
+                    <label>INDUSTRY PRINCIPAL</label>
+                </value>
+                <value>
+                    <fullName>LEAD CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>LEAD CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>MANAGEMENT TRAINEE</fullName>
+                    <default>false</default>
+                    <label>MANAGEMENT TRAINEE</label>
+                </value>
+                <value>
+                    <fullName>MANAGER</fullName>
+                    <default>false</default>
+                    <label>MANAGER</label>
+                </value>
+                <value>
+                    <fullName>PRINCIPAL CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>PRINCIPAL CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>PRINCIPAL TECHNOLOGY ARCHITECT</fullName>
+                    <default>false</default>
+                    <label>PRINCIPAL TECHNOLOGY ARCHITECT</label>
+                </value>
+                <value>
+                    <fullName>PROJECT MANAGER</fullName>
+                    <default>false</default>
+                    <label>PROJECT MANAGER</label>
+                </value>
+                <value>
+                    <fullName>QA LEAD</fullName>
+                    <default>false</default>
+                    <label>QA LEAD</label>
+                </value>
+                <value>
+                    <fullName>QA MANAGER</fullName>
+                    <default>false</default>
+                    <label>QA MANAGER</label>
+                </value>
+                <value>
+                    <fullName>SENIOR CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>SENIOR CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>SENIOR DIRECTOR</fullName>
+                    <default>false</default>
+                    <label>SENIOR DIRECTOR</label>
+                </value>
+                <value>
+                    <fullName>SENIOR EXECUTIVE</fullName>
+                    <default>false</default>
+                    <label>SENIOR EXECUTIVE</label>
+                </value>
+                <value>
+                    <fullName>SENIOR INDUSTRY PRINCIPAL</fullName>
+                    <default>false</default>
+                    <label>SENIOR INDUSTRY PRINCIPAL</label>
+                </value>
+                <value>
+                    <fullName>SENIOR LEAD CONSULTANT</fullName>
+                    <default>false</default>
+                    <label>SENIOR LEAD CONSULTANT</label>
+                </value>
+                <value>
+                    <fullName>SENIOR MANAGER</fullName>
+                    <default>false</default>
+                    <label>SENIOR MANAGER</label>
+                </value>
+                <value>
+                    <fullName>SENIOR PROJECT MANAGER</fullName>
+                    <default>false</default>
+                    <label>SENIOR PROJECT MANAGER</label>
+                </value>
+                <value>
+                    <fullName>SENIOR QA LEAD</fullName>
+                    <default>false</default>
+                    <label>SENIOR QA LEAD</label>
+                </value>
+                <value>
+                    <fullName>SENIOR QA MANAGER</fullName>
+                    <default>false</default>
+                    <label>SENIOR QA MANAGER</label>
+                </value>
+                <value>
+                    <fullName>SENIOR QUALITY ANALYST</fullName>
+                    <default>false</default>
+                    <label>SENIOR QUALITY ANALYST</label>
+                </value>
+                <value>
+                    <fullName>SENIOR TECHNOLOGY ARCHITECT</fullName>
+                    <default>false</default>
+                    <label>SENIOR TECHNOLOGY ARCHITECT</label>
+                </value>
+                <value>
+                    <fullName>SENIOR TECHNOLOGY LEAD</fullName>
+                    <default>false</default>
+                    <label>SENIOR TECHNOLOGY LEAD</label>
+                </value>
+                <value>
+                    <fullName>SENIOR TECHNOLOGY MANAGER</fullName>
+                    <default>false</default>
+                    <label>SENIOR TECHNOLOGY MANAGER</label>
+                </value>
+                <value>
+                    <fullName>SENIOR VP</fullName>
+                    <default>false</default>
+                    <label>SENIOR VP</label>
+                </value>
+                <value>
+                    <fullName>SOFTWARE ENGINEER</fullName>
+                    <default>false</default>
+                    <label>SOFTWARE ENGINEER</label>
+                </value>
+                <value>
+                    <fullName>SOFTWARE TRAINEE(BOOT CAMP)</fullName>
+                    <default>false</default>
+                    <label>SOFTWARE TRAINEE(BOOT CAMP)</label>
+                </value>
+                <value>
+                    <fullName>SOLUTIONS ARCHITECT</fullName>
+                    <default>false</default>
+                    <label>SOLUTIONS ARCHITECT</label>
+                </value>
+                <value>
+                    <fullName>TEAM LEAD</fullName>
+                    <default>false</default>
+                    <label>TEAM LEAD</label>
+                </value>
+                <value>
+                    <fullName>TECHNOLOGY ANALYST</fullName>
+                    <default>false</default>
+                    <label>TECHNOLOGY ANALYST</label>
+                </value>
+                <value>
+                    <fullName>TECHNOLOGY ARCHITECT</fullName>
+                    <default>false</default>
+                    <label>TECHNOLOGY ARCHITECT</label>
+                </value>
+                <value>
+                    <fullName>TECHNOLOGY LEAD</fullName>
+                    <default>false</default>
+                    <label>TECHNOLOGY LEAD</label>
+                </value>
+                <value>
+                    <fullName>TECHNOLOGY MANAGER</fullName>
+                    <default>false</default>
+                    <label>TECHNOLOGY MANAGER</label>
+                </value>
+                <value>
+                    <fullName>VP</fullName>
+                    <default>false</default>
+                    <label>VP</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>AVP(ASSOCIATE VICE PRESIDENT)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>DIRECTOR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>SENIOR DIRECTOR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>SENIOR TECHNOLOGY LEAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>SOFTWARE ENGINEER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>SOFTWARE TRAINEE(BOOT CAMP)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>TECHNOLOGY ANALYST</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>TECHNOLOGY LEAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>EXECUTIVE VP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>SENIOR VP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>VP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>PRINCIPAL TECHNOLOGY ARCHITECT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>SENIOR TECHNOLOGY ARCHITECT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>TECHNOLOGY ARCHITECT</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Experience_in_Cloudtaru__c</fullName>
+        <externalId>false</externalId>
+        <formula>(MONTH(TODAY()) + (12*(YEAR(TODAY())-YEAR(Employee_Joining_Date__c))) - MONTH(Employee_Joining_Date__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Experience in Cloudtaru</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Freelancer_Employment_Type__c</fullName>
+        <description>This field is required for calculating the salary of the freelancer employee based upon their choice from above field</description>
+        <externalId>false</externalId>
+        <label>Freelancer Employment Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Fixed Salary</fullName>
+                    <default>false</default>
+                    <label>Fixed Salary</label>
+                </value>
+                <value>
+                    <fullName>Hourly Basis</fullName>
+                    <default>false</default>
+                    <label>Hourly Basis</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reviewer</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Employee Master (Reviewer)</relationshipLabel>
+        <relationshipName>Employee_Master2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SubBand__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Band</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Band__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>C-1</fullName>
+                    <default>false</default>
+                    <label>C-1</label>
+                </value>
+                <value>
+                    <fullName>C-2</fullName>
+                    <default>false</default>
+                    <label>C-2</label>
+                </value>
+                <value>
+                    <fullName>C-3</fullName>
+                    <default>false</default>
+                    <label>C-3</label>
+                </value>
+                <value>
+                    <fullName>C-4</fullName>
+                    <default>false</default>
+                    <label>C-4</label>
+                </value>
+                <value>
+                    <fullName>C-5</fullName>
+                    <default>false</default>
+                    <label>C-5</label>
+                </value>
+                <value>
+                    <fullName>M-1</fullName>
+                    <default>false</default>
+                    <label>M-1</label>
+                </value>
+                <value>
+                    <fullName>M-2</fullName>
+                    <default>false</default>
+                    <label>M-2</label>
+                </value>
+                <value>
+                    <fullName>M-3</fullName>
+                    <default>false</default>
+                    <label>M-3</label>
+                </value>
+                <value>
+                    <fullName>B-1</fullName>
+                    <default>false</default>
+                    <label>B-1</label>
+                </value>
+                <value>
+                    <fullName>B-2</fullName>
+                    <default>false</default>
+                    <label>B-2</label>
+                </value>
+                <value>
+                    <fullName>B-3</fullName>
+                    <default>false</default>
+                    <label>B-3</label>
+                </value>
+                <value>
+                    <fullName>E-1</fullName>
+                    <default>false</default>
+                    <label>E-1</label>
+                </value>
+                <value>
+                    <fullName>E-2</fullName>
+                    <default>false</default>
+                    <label>E-2</label>
+                </value>
+                <value>
+                    <fullName>E-3</fullName>
+                    <default>false</default>
+                    <label>E-3</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>B-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>B-2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band B</controllingFieldValue>
+                <valueName>B-3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>C-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>C-2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>C-3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>C-4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band C</controllingFieldValue>
+                <valueName>C-5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>E-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>E-2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band E</controllingFieldValue>
+                <valueName>E-3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>M-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>M-2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Band M</controllingFieldValue>
+                <valueName>M-3</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <validationRules>
+        <fullName>AppraiserReviewer_Field_Required</fullName>
+        <active>true</active>
+        <description>Every Employee must Have  a Appraiser and Reviewer Field</description>
+        <errorConditionFormula>AND(
+    RecordType.Name=&apos;Employee&apos;,
+
+    ISBLANK(Reviewer__c),
+
+    ISBLANK(Appraiser__c)
+)</errorConditionFormula>
+        <errorMessage>Please give the Appraiser and Reviewer Details</errorMessage>
+    </validationRules>
+</CustomObject>

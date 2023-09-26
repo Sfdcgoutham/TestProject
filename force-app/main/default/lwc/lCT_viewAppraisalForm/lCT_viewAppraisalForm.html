@@ -1,0 +1,328 @@
+<template>
+  <div class="slds-box slds-p-top_none slds-p-bottom_none slds-p-right_none slds-p-left_none">
+    <div class="slds-page-header slds-page-header_record-home ">
+      <div class="slds-page-header__row">
+        <div class="slds-page-header__col-title">
+          <div class="slds-media">
+            <div class="slds-media__figure">
+              <lightning-icon size="large" icon-name="standard:avatar" alternative-text="avatar"
+                title="avatar"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                  <h1>
+                    <span class="slds-page-header__title slds-truncate" title="Goutham">{appraiseeName}</span>
+                    <span>{designation}</span>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slds-page-header__row">
+        <div class="slds-page-header__col-title">
+          <div class="slds-media">
+           
+            <div class="slds-media__body">
+              <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                  <h4>
+                    <span class="slds-page-header__title slds-truncate" title="Goutham">{cycle}</span>
+                    <span>{appraisalStatus}</span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="slds-page-header__col-actions" lwc:if={showButtons}>
+          <div class="slds-page-header__controls">
+            <div class="slds-page-header__control">
+              <lightning-button lwc:if={initiate} name="initiate" label="Initiate Self Appraisal" variant="brand"
+                onclick={handleClick}></lightning-button>
+              <lightning-button lwc:else label="Add Goals" icon-name="utility:add" name="addGoals" onclick={handleClick}
+              disabled={isButtonDisabled} class="slds-button_outline-brand">
+              </lightning-button> 
+            </div>
+            &nbsp; &nbsp;
+            <lightning-button  label="Ad-hoc Goals" icon-name="utility:add" name="addhoc" onclick={openAddhoc}
+            disabled={isButtonDisabled} class="slds-button_outline-brand">
+            </lightning-button> 
+            <!-- <div class="slds-page-header__control">
+              <ul class="slds-button-group-list">
+                <li>
+                  <button class="slds-button slds-button_neutral">Edit</button>
+                </li>
+                <li>
+                  <button class="slds-button slds-button_neutral">Delete</button>
+                </li>
+                <li>
+                  <button class="slds-button slds-button_neutral">Clone</button>
+                </li>
+                <li>
+                  <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                    <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true"
+                      title="More Actions">
+                      <svg class="slds-button__icon" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                      </svg>
+                      <span class="slds-assistive-text">More Actions</span>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="slds-page-header__row slds-page-header__row_gutters">
+        <div class="slds-page-header__col-details">
+          <ul class="slds-page-header__detail-row">
+            <!-- <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Status">Status</div>
+              <div class="slds-truncate" title="Initiated">{appraisalStatus}</div>
+            </li> -->
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Start Date">Start Date</div>
+              <div class="slds-truncate" title="Initiated">{startDate}</div>
+            </li>
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="End Date">End Date</div>
+              <div class="slds-truncate" title="Initiated">{endDate}</div>
+            </li>
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Appraiser Name">Appraiser Name</div>
+              <div class="slds-truncate" title="Initiated">{appraiserName}</div>
+            </li>
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Reviewer Name">Reviewer Name</div>
+              <div class="slds-truncate" title="Initiated">{reviewerName}</div>
+            </li>
+             <template if:true={overallRatingtrue}>
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Overall Rating">Appraisee Overall Rating</div>
+              <div class="slds-truncate" title="Initiated">{overallRating}</div>
+            </li>
+          </template>
+          <template if:true={dateTrue}>
+            <li class="slds-page-header__detail-block">
+              <div class="slds-text-title slds-truncate" title="Submitted Date">Submitted Date</div>
+              <div class="slds-truncate" title="Initiated">{submittedDate}</div>
+            </li>
+          </template>
+          </ul>
+        </div>
+      </div>  
+    </div>
+    <template if:true={prdform}>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <span>
+                <div class=" lgc-bg">
+                  <!-- <lightning-input label="Overall Rating" value={overallRating} name="overallRating"
+                  variant="label-inline" type="number" onchange={inputHandler} required class="inputCss"
+                  disabled></lightning-input> -->
+                  <lightning-input label="Submitted Date" placeholder='' value={submittedDate}
+                  variant="label-inline" disabled></lightning-input>
+                  <lightning-input type="checkbox" label="Conflict Flag" checked={conflictFlag} name="conflictflag" variant="label-inline"
+                  onchange={inputHandler} disabled={submitStatus} ></lightning-input>
+                 
+                  <lightning-input type="checkbox" label="PRD Done with Appraiser" 
+                  checked={prdWithAppraiserIsDone} name="prdWithAppraiserIsDone" variant="label-inline"
+                  onchange={inputHandler} disabled={submitStatus} class="labelCss"></lightning-input>
+
+                <template if:true={prdWithAppraiserIsDone}>
+                  <lightning-input type="date" label="PRD Date" value={prdDate} name="prdDate"
+                      variant="label-inline" onchange={inputHandler} required class="inputCss"
+                      disabled={submitStatus} ></lightning-input>
+                      <lightning-input type="number" label="PRD Duration (In Mins)" value={prdTime}
+                        name="prdTime" variant="label-inline" onchange={inputHandler} required
+                        class="inputCss" disabled={submitStatus}></lightning-input>
+                </template>
+               
+             
+                </div>
+            </span>
+         </div>
+         <div class="slds-col slds-size_1-of-2">
+                <span>
+                  <div class=" lgc-bg">
+                   
+               
+                    <lightning-textarea label="Appraiser Comments" name="appraiserComment"
+                    value={appraiserComments} onchange={inputHandler} variant="label-inline"
+                     disabled></lightning-textarea>
+                     <lightning-textarea label="What Happened Well" name="appraiserComment"
+                     value={whatHappenedWell} variant="label-inline"
+                      disabled></lightning-textarea>
+                      <lightning-textarea label="What can be Done better" name="appraiserComment"
+                      value={whatCanBeDoneBetter}  variant="label-inline"
+                       disabled></lightning-textarea>
+                     <template if:true={closureComments}>
+                     <lightning-textarea label="Closure Comments" value={closureComments} name="closurecomments"
+                    variant="label-inline" onchange={inputHandler} required class="textAreaCss"
+                    disabled={submitStatus}></lightning-textarea> 
+                    </template>
+                    
+                     <template if:true={grievenceComment}>
+                     <lightning-textarea label="Grievence Details"  variant="label-inline" class="textAreaCss"  disabled={submitStatus} value={grievenceComment} name="grievenceComment" onchange={inputHandler}></lightning-textarea>
+                    </template> 
+                    <template if:true={showFinalRating}>
+                      <!-- <lightning-input label="Reviewer Rating" value={finalRating} name="finalRating"
+                      variant="label-inline" type="number"   class="inputCss"
+                      disabled></lightning-input> -->
+    
+                      <lightning-textarea label="Reviewer Comments" name="reviewerFeedback"
+                      value={reviewerFeedback} variant="label-inline"
+                       disabled></lightning-textarea>
+                      </template>
+              
+                  <!-- <template if:true={prdWithAppraiserIsDone}>
+                    <lightning-input type="number" label="PRD Duration (In Mins)" value={prdTime}
+                        name="prdTime" variant="label-inline" onchange={inputHandler} required
+                        class="inputCss" disabled={submitStatus}></lightning-input>
+                  </template> -->
+                  </div>
+                </span>
+          </div>
+     </div>
+     <!-- <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <span> <lightning-textarea label="Closure Comments" value={closureComments} name="closurecomments"
+          variant="label-inline" onchange={inputHandler} required class="textAreaCss"
+          disabled={submitStatus}></lightning-textarea></span>
+      </div>
+      <div class="slds-col">
+        <span>
+
+        </span>
+      </div>
+
+    </div> -->
+    <template lwc:if={sentBtn}>
+    <div class="slds-align_absolute-center slds-var-m-around_medium slds-var-p-around_medium" >
+          <lightning-button variant="brand-outline" label="Back" name="cancel"   onclick={handleClick}
+             icon-name="utility:back"></lightning-button>&nbsp;&nbsp;
+         <lightning-button variant="brand-outline" label="Save" onclick={handleSave}
+             icon-name="utility:save"></lightning-button>&nbsp;&nbsp;
+      <!-- <template if:true={signedButton}> -->
+         <lightning-button variant="brand-outline" label="Send For Review"
+          onclick={handleSentForReview}></lightning-button>
+    </div>
+    </template>
+    <template lwc:elseif={sentBtn}>
+      <div class="slds-align_absolute-center slds-var-m-around_medium slds-var-p-around_medium" >
+        <lightning-button variant="brand-outline" label="Back" name="cancel"   onclick={handleClick}
+           icon-name="utility:back" ></lightning-button>&nbsp;&nbsp;
+       <!-- <lightning-button variant="brand-outline" label="Close the Appraisal" onclick={openPopupClose}
+           icon-name="utility:save" disabled={submitStatus}></lightning-button>&nbsp;&nbsp;
+   
+       <lightning-button variant="brand-outline" label="Grievence Request"
+        onclick={openPopup} disabled={submitStatus}></lightning-button> -->
+  </div>
+
+    </template>
+    <template lwc:elseif={enableBtn}>
+      <div class="slds-align_absolute-center slds-var-m-around_medium slds-var-p-around_medium" >
+        <lightning-button variant="brand-outline" label="Back" name="cancel"   onclick={handleClick}
+           icon-name="utility:back" ></lightning-button>&nbsp;&nbsp;
+       <!-- <lightning-button variant="brand-outline" label="Close the Appraisal" onclick={openPopupClose}
+           icon-name="utility:save" ></lightning-button>&nbsp;&nbsp; -->
+    <!-- <template if:true={signedButton}> -->
+       <!-- <lightning-button variant="brand-outline" label="Grievence Request"
+        onclick={openPopup} ></lightning-button> -->
+  </div>
+
+    </template>
+ 
+  </template>
+ 
+  </div>
+  <template if:true={showPopup}>
+    <div class="backdrop"></div>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-modal="true" aria-labelledby="modal-heading-01">
+      <div class="slds-modal__container">
+        
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_medium">Grievence Request</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning-textarea label="Grievence Details" value={grievenceComment} name="grievenceComment" onchange={inputHandler}></lightning-textarea>
+        </div>
+        <footer class="slds-modal__footer">
+          <lightning-button label="Save" variant="brand" onclick={handleGrievence}></lightning-button>&nbsp;&nbsp;
+          <lightning-button label="Back" variant="neutral" onclick={closePopup}></lightning-button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+  </template>
+  <template if:true={showPopupClose}>
+    <div class="backdrop"></div>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-modal="true" aria-labelledby="modal-heading-01">
+      <div class="slds-modal__container">
+        
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_medium">Close The Appraisal</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning-textarea label="Closure Comments" value={closureComments} name="closurecomments"
+          variant="label-inline" onchange={inputHandler} class="textAreaCss"
+          ></lightning-textarea></div>
+        <footer class="slds-modal__footer">
+          <lightning-button label="Save" variant="brand" onclick={handleCloseForm}></lightning-button>&nbsp;&nbsp;
+          <lightning-button label="Back" variant="neutral" onclick={closePopupClose}></lightning-button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+  </template>
+  <template if:true={addAdhocKpi}>
+    <div class="backdrop"></div>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-modal="true" aria-labelledby="modal-heading-01">
+      <div class="slds-modal__container">
+        
+        <header class="slds-modal__header">
+          <h2 class="slds-text-heading_medium">Add Ad-hoc Goal</h2>
+        </header>
+      <div class="slds-modal__content slds-p-around_medium">
+        <lightning-layout >
+          <!-- Row 1 -->
+          <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="12">
+            <div >
+              <lightning-textarea label="KPI Name"   value={kpiName} name="kpiname" onchange={handlerAddhoc} required class="validity" ></lightning-textarea>
+            </div>  
+            <div >
+                <lightning-textarea label="Justification"   value={justificationAddhoc} name="justification" onchange={handlerAddhoc} required class="validity"></lightning-textarea>
+
+              </div>
+              <div >
+                <lightning-textarea label="Challenges"  value={challengesAddhoc} name="challenges" onchange={handlerAddhoc} required class="validity"></lightning-textarea>
+
+              </div>
+              <div >
+                <lightning-combobox label="Appraisee Rating" name="selfRating"
+                placeholder="Select value"
+                options={statusOptions}
+                onchange={handlerAddhoc}
+                value={selfRatingAddhoc} required class="validity">
+                </lightning-combobox>  
+              </div>
+              <div >
+                <lightning-input label="Appraisee Weightage (Should be between 0 to 100)" 
+                onchange={handlerAddhoc} value={weightageAddhoc} name="weightage" required class="validity"></lightning-input>
+              </div>
+          </lightning-layout-item>
+      </lightning-layout>
+         </div>
+        <footer class="slds-modal__footer">
+          <lightning-button label="Save" variant="brand" onclick={handleSaveAddhoc}></lightning-button>&nbsp;&nbsp;
+          <lightning-button label="Back" variant="neutral" onclick={closePopupAddhoc}></lightning-button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+  </template>
+</template>

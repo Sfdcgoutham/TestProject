@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Auto-Submitted to Appraiser</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>Since you failed to submit the Appraisal form to the Appraiser within the given date, your Appraisal form is Auto-Submitted to the {!AppraiserName}.</p>
+<p>For further Querries and doubts please contact {!AppraiserName}.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<template>
+    <template if:true={spinner}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:true={login}>
+        <div class="logincenter">
+            <lightning-layout vertical-align="center" class="slds-align_absolute-center x-large login">
+                <lightning-layout-item flexibility="auto" size="5" class="loginleft">
+                    <div class="slds-p-top_medium slds-align_absolute-center">
+                        <img src={cloudtarulogo} class="img" />
+                    </div>
+                    <div class="slds-align_absolute-center appdiv">
+                        <!-- <h1 class="slds-text-heading_large">HelpDesk</h1> -->
+                        <img src={Kriyalogo} width="300" height="300" />
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" size="7">
+                    <div class="slds-align_absolute-center slds-m-top_xxx-small slds-text-heading_large loginHdr">
+                        <h2>{stageName}</h2>
+                    </div>
+                    <div class="slds-p-left_large slds-p-right_large">
+                        <template if:false={stageOTP}>
+                            <div class="slds-p-around_small">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label formele" for="text-input-id-1">Email
+                                        Id</label>
+                                    <lightning-input name="emailId" label="Email Id" required variant="label-hidden"
+                                        message-when-value-missing="Please provide your Email Id."
+                                        message-when-type-mismatch="Please provide Valid Email Id."
+                                        placeholder="Enter Your Email ID (emailid@domain)" value={username}
+                                        onchange={usernamehandler} type="email"></lightning-input>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={stageOTP}>
+                            <!-- <div class="slds-p-around_small">
+                                <h1 class="slds-align_absolute-center slds-text-heading_medium loginHdr">Welcome back,
+                                    {empDetails.empDetails.Name}!</h1>
+                            </div> -->
+                            <div class="slds-p-around_small">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label formele" for="text-input-id-3">Enter
+                                        OTP</label>
+                                    <lightning-input name="otp" label="Email Id" required variant="label-hidden"
+                                        placeholder="Enter OTP" value={otp} onchange={otphandler} type="text">
+                                    </lightning-input>
+                                </div>
+                            </div>
+                            <template if:true={errormsg}>
+                                <!-- <h2 style="color: red;">{errormsg}</h2> -->
+                                <h2 style="color: red;">Please Enter OTP</h2>
+                                <!-- <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                                    <span class="slds-assistive-text">error</span>
+                                    <h2>Please Enter OTP</h2>
+                                </div> -->
+                            </template>
+                            <template if:true={errormsg2}>
+                                <h2 style="color: red;">Invalid OTP</h2>
+                            </template>
+                            <div class="slds-p-around_small">
+                                <lightning-formatted-text class="timeval" value={timeVal}></lightning-formatted-text>
+                            </div>
+                        </template>
+                        <div class="slds-p-around_medium slds-align_absolute-center">
+                            <lightning-button if:false={stageOTP} variant="brand" label="Send OTP"
+                                onclick={sendotphandler} title="Primary action" disabled={disableSendOTP}
+                                class="slds-m-left_x-small slds-button-override"></lightning-button>
+                            <lightning-button if:true={stageOTP} variant="Destructive" label="Close" onclick={logout}
+                                title="Close" class="slds-m-left_x-small"></lightning-button>
+                            <template if:false={otptimeout}>
+                                <lightning-button if:true={stageOTP} variant="brand" label="Submit" onclick={submitotp}
+                                    title="Primary action" class="slds-m-left_x-small slds-button-override">
+                                </lightning-button>
+                            </template>
+                            <lightning-button if:true={otptimeout} variant="brand" label="Resend OTP"
+                                onclick={sendotphandler} title="Primary action"
+                                class="slds-m-left_x-small slds-button-override"></lightning-button>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <!-- <lightning-layout>
+
+                <lightning-layout-item>
+                    <img src={cloudtarulogo} class="img" />
+                </lightning-layout-item>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                <div class="vl"></div>&ensp;&ensp;&ensp;
+                <lightning-layout-item>
+                    <form>
+                        <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large">
+                            <span style="margin-left:15px">
+                                <h2>Login Page</h2>
+                            </span>
+                        </div> <br />
+
+                        <div class="slds-form-element__control ">
+                            <label class="inputclass" style="font-size: 15px;font-weight: bolder;">User Name</label>
+                            <lightning-input name="abc" label="User Name" required="true" variant="label-hidden" placeholder="username@gmail.com" 
+                                type="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" message-when-pattern-mismatch="Please enter valid Email Address" 
+                                value={username} style="width: 300px;" onchange={usernamehandler} ></lightning-input>
+
+                        </div>
+                        <div>
+                        </div> <br />
+                        <div>
+                            <lightning-button variant="success" label="Send Otp" onclick={sendotphandler}></lightning-button>
+                        </div>
+
+
+                    </form>
+                </lightning-layout-item>
+            </lightning-layout> -->
+        </div>
+    </template>
+
+    <!--            Popup for Expired Session   - START             -->
+
+    <template if:true={sessExp}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <div class="slds-modal__header headerbg">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">
+                                Session Expired!!
+                            </h1>
+                        </div>
+
+                        <div class="slds-col slds-size_0-of-12">
+                            <lightning-button-icon icon-name="utility:close" style="float:right;" variant="bare-inverse" size="large"
+                                alternative-text="Cancel and Close" title="Cancel and Close" onclick={closeModal}>
+                            </lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <p>You're logged out due to Inactivity.</p>
+                </div>
+
+                <div class="slds-modal__footer footer-override">
+                    <div class="slds-clearfix">
+                        <lightning-button variant="brand-outline" label="Close" title="Close"
+                            class="slds-m-around_x-small slds-float_right" name="close" onclick={closeModal}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!--            Popup for Expired Session  - END             -->
+
+    <template if:true={otppage}>
+        <div class="logincenter">
+            <lightning-layout vertical-align="center" class="slds-align_absolute-center x-large login">
+                <lightning-layout-item flexibility="auto" size="5" class="loginleft">
+                    <div class="slds-p-top_medium slds-align_absolute-center">
+                        <img src={cloudtarulogo} class="img" />
+                    </div>
+                    <div class="slds-align_absolute-center appdiv">
+                        <!-- <h1 class="slds-text-heading_large">HelpDesk</h1> -->
+                        <img src={Kriyalogo} width="200" height="200" />
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" size="7">
+                    <!-- <div class="slds-align_absolute-center slds-m-top_xxx-small slds-text-heading_large loginHdr">
+                        <h2>{stageName}</h2>
+                    </div> -->
+                    <div class="slds-p-left_large slds-p-right_large">
+                        <div class="slds-p-around_small">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label formele" for="text-input-id-3">Enter
+                                    OTP</label>
+                                <lightning-input name="otp" label="Email Id" required variant="label-hidden"
+                                    placeholder="Enter OTP" value={otp} onchange={otphandler} type="text">
+                                </lightning-input>
+                            </div>
+                        </div>
+                        <div class="slds-p-around_medium slds-align_absolute-center">
+                            <lightning-button variant="Destructive" label="Close" onclick={closelogin} title="Close"
+                                class="slds-m-left_x-small"></lightning-button>
+                            <lightning-button variant="brand" label="Submit" onclick={submitotp} title="Primary action"
+                                class="slds-m-left_x-small slds-button-override">
+                            </lightning-button>
+                        </div>
+                    </div>
+
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <!-- <div class='slds-box' style=" border-radius: 20px;margin-top:180px;margin-left:80px; background: linear-gradient(to bottom, #33ccff 0%, #99ffcc 100%); color: black;width:800px;height:250px">
+            <lightning-layout>
+
+                <lightning-layout-item>
+                    <img src={cloudtarulogo} class="img" />
+                </lightning-layout-item>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                <div class="vl"></div>&ensp;&ensp;&ensp;
+                <lightning-layout-item>
+                    <form>
+                        <div class="slds-align_absolute-center slds-m-top_small slds-text-heading_large">
+                            <span>Enter OTP</span>
+                        </div>
+
+                        <div class="slds-form-element__control">
+                            <lightning-input label=" Enter OTP" name="abc" required="true" placeholder="Enter OTP" type="string" value={otp} onchange={otphandler} style="width: 400px;" onkeypress={handleEnter}></lightning-input>
+                            <template if:true={errormsg}>
+                                <h2 style="color: red;">Invalid Code,Please check the code and try again</h2>
+                            </template>
+                        </div>
+                        <div class="slds-align_absolute-center" style="height:4rem; margin-left: 30px;">
+                            <lightning-button variant="Destructive" label="Close" onclick={closelogin}></lightning-button>&nbsp;&nbsp;
+                            <lightning-button variant="success" label="Login" onclick={submitotp}></lightning-button>
+
+                        </div>
+                    </form>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div> -->
+    </template>
+    <template if:true={att}>
+
+        <lightning-layout multiple-rows="true" vertical-align="center" class="x-large hdHeader">
+            <lightning-layout-item size="4">
+                <div class="slds-p-around_medium">
+                    <img src={cloudtarulogo} width="150" />
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" size="4">
+                <div class="slds-align_absolute-center appdiv">
+                    <!-- <h1 class="slds-text-heading_large">HelpDesk</h1> -->
+                    <img src={Kriyalogo} width="150" height="150" />
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" size="4">
+                <div class="resetBtn slds-float_right slds-p-right_medium ">
+                    <lightning-icon icon-name="standard:user" size="small"></lightning-icon> <b> &nbsp;{username}&nbsp;</b>
+                    <!-- <lightning-icon icon-name="utility:logout" size="xx-small"></lightning-icon> -->
+                    <a onclick={logout}><b>LogOut</b></a>
+                </div>
+            </lightning-layout-item>
+       </lightning-layout>
+        <template if:true={pmstemplate}>
+            <c-home-page_pms onlogoutsession={logout}></c-home-page_pms>
+        </template>
+
+    </template>
+
+
+</template>

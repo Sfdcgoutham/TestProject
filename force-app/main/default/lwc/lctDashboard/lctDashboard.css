@@ -1,0 +1,12 @@
+.sectionCard{
+    --slds-c-accordion-color-border: white;
+    --slds-c-accordion-summary-color-background :whitesmoke!important;
+    margin-bottom: 10px;
+    /* border: 1px solid #00c09e; */
+  }
+
+  .boxAlign{
+    /* margin-left: -1.7%; */
+    /* margin-right: -1.7%;
+    margin-bottom: -5%; */
+  }

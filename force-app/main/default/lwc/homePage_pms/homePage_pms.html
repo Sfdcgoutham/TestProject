@@ -1,0 +1,84 @@
+<template>
+    <lightning-card>
+        <div class="slds-align_absolute-center">
+            <div class="slds-p-horizontal_medium" style="width:100%;">
+
+                <template lwc:if={isAppraisee}>
+
+                </template>
+                <template lwc:else>
+                    <lightning-combobox class="comboBoxAlign" name="role" value={roleSelectedValue}
+                        placeholder="Select Role" options={options} onchange={handleChange}>
+                    </lightning-combobox>
+                    <span class="textAlign">Select Role </span>
+                </template>
+
+                <div class="boxAlign">
+                    <lightning-tabset active-tab-value="Home" class="">
+                        <lightning-tab label="Home" value="Home" onactive={handleActive} icon-name="standard:home">
+                            <template lwc:if={personalTemplate}>
+                                <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}
+                                    class="sectionCard">
+                                    <lightning-accordion-section name="A" label="Personal Details" class="">
+                                        <c-l-c-t_emp-personal-details employee-id={employeeId} email={email}
+                                            designation={designation} band={band} selected-role={roleSelectedValue}
+                                            is-appraisee={appraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}
+                                            employee-name={employeeName}></c-l-c-t_emp-personal-details>
+                                    </lightning-accordion-section>
+                                </lightning-accordion>
+                            </template>
+                            <template lwc:elseif={isAppRev}>
+                                <c-lct-dashboard employee-id={employeeId} email={email} selected-role={roleSelectedValue}
+                                    is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}>
+                                </c-lct-dashboard>
+                            </template>
+                        </lightning-tab>
+                        <template lwc:if={isAppRev}>
+                            <lightning-tab label="My Team" icon-name="standard:team_member">
+                                <!-- <c-lct_appraiser-my-team employee-id={employeeId}></c-lct_appraiser-my-team> -->
+                                   <c-lct-my-team  employee-id={employeeId} email={email} selected-role={roleSelectedValue}
+                                   is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct-my-team> 
+                            </lightning-tab>
+                        </template>
+                        <template lwc:else>
+                            <lightning-tab label="Appraisals" value="Appraisals" onactive={handleActive}
+                                icon-name="standard:entitlement">
+                                <template if:true={appraisalTemplate}>
+                                    <c-l-c-t_pms-Appraisee-tasks employee-id={employeeId} email={email}
+                                        designation={designation} band={band}
+                                        is-appraisee={isAppraisee} selected-role={roleSelectedValue}
+                                         is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-l-c-t_pms-Appraisee-tasks>
+                                </template>
+                            </lightning-tab>
+                            <lightning-tab label="Feedback Forms" value="Feedback" onactive={handleActive}
+                                icon-name="standard:feedback">
+                                <template if:true={feedbackTemplate}>
+                                   
+                                  <c-l-c-t_feed-back-dashboard employee-id={employeeId} email={email}
+                                  designation={designation} band={band}
+                                  is-appraisee={isAppraisee} selected-role={roleSelectedValue}
+                                  is-appraiser={isAppraiser} is-reviewer={isReviewer}>
+
+                                  </c-l-c-t_feed-back-dashboard>
+
+                                </template>
+                            </lightning-tab>
+                        </template>
+                    </lightning-tabset>
+                </div>
+                <!-- <template if:true={isAppraiser}>
+                    <c-lct-main-page employee-id={employeeId} email={email} selected-role={roleSelectedValue}
+                        is-appraisee={appraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}>
+                    </c-lct-main-page>
+                </template>
+
+                <template if:true={isReviewer}>
+                    <c-lct-main-page employee-id={employeeId} email={email} selected-role={roleSelectedValue}
+                        is-appraisee={appraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}>
+                    </c-lct-main-page>
+                </template> -->
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Auto-Submitted to Appraiser</name>
+    <style>none</style>
+    <subject>Auto-Submitted to Appraiser</subject>
+    <textOnly>Auto-Submitted to Appraiser
+
+Dear {!AppraiseeName} ,
+
+Since you failed to submit the Appraisal form to the Appraiser within the given date, your Appraisal form is Auto-Submitted to the {!AppraiserName}.
+
+For further Querries and doubts please contact {!AppraiserName}.
+
+Thank &amp; Regards,
+
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

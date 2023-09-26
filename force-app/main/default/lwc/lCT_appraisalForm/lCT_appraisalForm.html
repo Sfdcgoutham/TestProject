@@ -1,0 +1,117 @@
+<template>
+	<!-- <lightning-card>
+        
+		<table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode">
+			<thead>
+			  <tr class="slds-line-height_reset">
+				
+				<th aria-label="Name" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+				  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+	
+					<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+					  <span class="slds-truncate" title="Name">Name</span>
+					 
+					</div>
+				  </a>
+				 
+				</th>
+				<th aria-label="Status" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+				  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+					<span class="slds-assistive-text">Sort by: </span>
+					<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+					  <span class="slds-truncate" title="Status">Status</span>
+					  
+					</div>
+				  </a>
+				 
+				</th>
+				<th aria-label="Appraisal Cycle" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+				  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+					<span class="slds-assistive-text">Sort by: </span>
+					<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+					  <span class="slds-truncate" title="Appraisal Cycle">Appraisal Cycle</span>
+					</div>
+				  </a>
+				  
+				</th>
+				<th aria-label="Start Date" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+				  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+					<span class="slds-assistive-text">Sort by: </span>
+					<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+					  <span class="slds-truncate" title="Start Date">Start Date</span>
+					  
+						
+					  </span>
+					</div>
+				  </a>
+				 
+				</th>
+				<th aria-label="End Date" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+				  <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+					<span class="slds-assistive-text">Sort by: </span>
+					<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+					  <span class="slds-truncate" title="End Date">End Date</span>
+					 
+					</div>
+				  </a>
+				 
+				</th>
+
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr aria-selected="false" class="slds-hint-parent">
+				
+				<td class="slds-cell_action-mode" role="gridcell">
+				  <div class="slds-truncate" title={cRowData.Name}>{cRowData.Name}</div>
+				</td>
+				<td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title={cRowData.Status__c}>{cRowData.Status__c}</div>
+				  </td>
+				  <td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title={cRowData.AppraisalCycle__c}>{cRowData.AppraisalCycle__c}</div>
+				  </td> 
+
+				  <td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title={cRowData.Start_Date__c}>{cRowData.Start_Date__c}</div>
+				  </td>
+
+				  <td class="slds-cell_action-mode" role="gridcell">
+					<div class="slds-truncate" title={cRowData.End_Date__c}>{cRowData.End_Date__c}</div>
+				  </td>
+				
+			  </tr>
+			 
+			</tbody>
+		  </table>
+
+	
+    </lightning-card> -->
+   <template if:false={noRecords}>
+	<template for:each={arrayData1} for:item="item">
+		<lightning-accordion allow-multiple-sections-open active-section-name={activeSections} class="sectionCard"
+			key={item.Id}>
+			<lightning-accordion-section name="A" label={item.category} class="">              
+				<c-l-c-t_-kpi-card kpi-data={item.kpis} is-appraisee={isAppraisee} selected-role={selectedRole} signed-template={signedTemplate}
+				is-appraiser={isAppraiser} is-reviewer={isReviewer} eval-record-id={evalRecordId} onrecorddelete={handleRecordDeletion} oncustomsave={dispacthingEvent} selected-status={selectedStatus}></c-l-c-t_-kpi-card>
+			</lightning-accordion-section>
+		</lightning-accordion>
+	</template>
+   <template if:true={isAppraisee}>
+	
+	<div class="slds-modal__footer backgroundfooter slds-clearfix" slot="footer" >
+		<lightning-button label="Back" slot="actions" variant="neutral" onclick={backAction}></lightning-button> &nbsp;&nbsp;&nbsp;&nbsp;
+		<!-- <lightning-button label="Save" slot="actions" variant="brand"></lightning-button> &nbsp;&nbsp;&nbsp;&nbsp; -->
+		<template lwc:if={submtBtn}>
+		<lightning-button label="Submit" slot="actions" variant="brand" onclick={handleSubmit}></lightning-button>    
+	    </template>
+	</div>
+   
+</template>
+
+</template>
+
+<template if:true={noRecords}>
+	<c-no-data_sls message='No Data Found'></c-no-data_sls>
+</template>
+</template>

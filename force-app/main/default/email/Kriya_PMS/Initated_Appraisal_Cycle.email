@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Initated Appraisal Cycle</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>You are Succesfully Initated the Appraisal form for the current cycle {!CycleName}.
+Please fill the form with accurate details and submit to the Appraiser{!AppraiserName} within the corresponding {!enddate}.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

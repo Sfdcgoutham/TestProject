@@ -1,0 +1,27 @@
+.sectionCard{
+    --slds-c-accordion-color-border: white;
+    --slds-c-accordion-summary-color-background :whitesmoke!important;
+    margin-bottom: 10px;
+    /* border: 1px solid #00c09e; */
+  }
+  .background{
+    border-radius: 6px 6px;
+   /* box-shadow: 0 20px 30px -20px rgba(0,0,0,0.3);*/
+    border: solid 1px #cdcfe4;
+    background-color: var(--flat-white);
+    margin: 8px 0px;
+  }
+  :host {
+    --slds-c-accordion-heading-text-color: black;
+    --slds-c-accordion-heading-font-size: 1.2rem
+  }
+  .backgroundfooter{
+    background-color:whitesmoke!important; ;
+    }
+    footer { 
+      position: fixed; 
+      left: 0; 
+      bottom: 0; 
+      width: 100%; 
+      
+    }

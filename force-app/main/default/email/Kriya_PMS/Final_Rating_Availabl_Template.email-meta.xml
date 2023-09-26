@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Final_Rating_Availabl_Template</name>
+    <style>none</style>
+    <subject>Final Rating Available</subject>
+    <textOnly>Final Rating Available
+
+Dear {!AppraiseeName} ,
+
+Final Rating Available for your Appraisal Form Kindly go through the feedback and comments given by the Reviewer.
+
+Thank &amp; Regards,
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

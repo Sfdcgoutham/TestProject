@@ -1,0 +1,16 @@
+.sectionCard{
+    --slds-c-accordion-color-border: white;
+    --slds-c-accordion-summary-color-background :whitesmoke!important;
+    margin-bottom: 10px;
+    border: 1px solid #00c09e;
+  }
+
+  .comboBoxAlign{
+    width: 150px;
+    float: right;
+    margin-top: -1.4%;
+  }
+
+  .boxAlign{
+    margin-left: -1.7%;
+  }

@@ -1,0 +1,20 @@
+<template>
+    <div class="boxAlign">
+        <lightning-tabset>
+            <lightning-tab label="Home" icon-name="standard:home">
+                <c-lct-dashboard employee-id={employeeId} email={email} selected-role={selectedRole} 
+                is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}>
+            </c-lct-dashboard>
+            </lightning-tab>
+            <lightning-tab label="My Team" icon-name="standard:team_member">
+              
+                <!-- <template if:true={isAppraiser}> -->
+                    <c-lct-my-team employee-id={employeeId} selected-role={selectedRole} selected-status={selectedStatus}
+                    is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct-my-team>
+                <!-- <c-lct_appraiser-my-team employee-id={employeeId} selected-role={selectedRole} 
+                is-appraisee={isAppraisee} is-appraiser={isAppraiser} is-reviewer={isReviewer}></c-lct_appraiser-my-team> -->
+            <!-- </template> -->
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Closing the Appraisal form</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>Your Appraisal Form has been closed successfully.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

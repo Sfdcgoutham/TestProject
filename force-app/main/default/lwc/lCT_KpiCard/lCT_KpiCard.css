@@ -1,0 +1,26 @@
+.backgroundfooter{
+    background-color:whitesmoke!important; ;
+    }
+    .error-message {
+        color: red;
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+      }
+
+  .textAlign{
+    float: left;
+    /* margin-top: 1%; */
+    margin-left: 0.5%;
+  }
+
+  .textAreaAlign{
+    float: left;
+    margin-top: 5%;
+    margin-left: 0.5%;
+  }
+  .highlight {
+    color: red; /* Replace "red" with your desired color */
+  }
+  .red-border {
+    border: 1px solid red;
+  }

@@ -1,0 +1,47 @@
+<template>
+    <template if:false={showView}>
+        <lightning-datatable key-field="id" data={data} columns={columns} onrowaction={handleRowAction}
+            hide-checkbox-column="true" class="slds-table_header-fixed_container slds-scrollable_x slds-border_top">
+        </lightning-datatable>
+    </template>
+    <template if:true={showView}>
+        <template if:true={data2.length}>
+            <lightning-tabset active-tab-value="a" variant="scoped">
+                <lightning-tab label="Appraisal Details" icon-name="standard:team_member" value="a">
+                    <template if:true={appraisalList}>
+                        <lightning-datatable key-field="id" column-widths-mode="auto" data={data2} columns={columns1}
+                            onrowaction={handleRowAction1} hide-checkbox-column="true"
+                            class="slds-table_header-fixed_container slds-scrollable_x slds-border_top">
+                        </lightning-datatable>
+                        <div class="slds-align_absolute-center slds-p-top_small">
+                            <lightning-button variant="brand-outline" label="Back" onclick={handleBack}
+                                icon-name="utility:back"></lightning-button>&nbsp;&nbsp;
+                        </div>
+                    </template>
+                    <template if:true={viewAppraisal}>
+                        <template lwc:if={isAppraiser}>
+                            <c-l-c-t_teams-appraisal-form record-id={recordId} employee-id={employeeId}
+                                is-appraisee={isAppraisee} signed-template={signedTemplate} selected-role={selectedRole}
+                                is-appraiser={isAppraiser} is-reviewer={isReviewer} selected-status={appraisalStatus}
+                                onbackevent={handleBack1}>
+                            </c-l-c-t_teams-appraisal-form>
+                        </template>
+                        <template lwc:elseif={isReviewer}>
+                            <c-l-c-t_individual-appraisal-form record-id={recordId} employee-id={employeeId}
+                                is-appraisee={isAppraisee} selected-role={selectedRole} is-appraiser={isAppraiser}
+                                is-reviewer={isReviewer} selected-status={appraisalStatus} onbackevent={handleBack1}>
+                            </c-l-c-t_individual-appraisal-form>
+                        </template>
+                    </template>
+                </lightning-tab>
+
+                <lightning-tab label="Appraisee Details" icon-name="standard:home">
+                    <template if:true={firstCall}>
+                        <c-l-c-t_emp-personal-details employee-id={empId}
+                            email={empEmail}></c-l-c-t_emp-personal-details>
+                    </template>
+                </lightning-tab>
+            </lightning-tabset>
+        </template>
+    </template>
+</template>

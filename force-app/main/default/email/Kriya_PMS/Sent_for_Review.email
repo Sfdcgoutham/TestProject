@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sent for Review</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>Your Appraisal Form is succesfully sent for Review to your Reviewer{!ReviewerName}.
+Kindly wait for the further details..</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

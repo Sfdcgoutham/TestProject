@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When form is submitted to Grievance Request to send mail to HR/Appraiser/Reviewer</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Grievance Request to All</name>
+    <style>none</style>
+    <subject>Grievance Request</subject>
+    <textOnly>Grievance Request
+
+{!AppraiseeName} has requested for the Grievance regarding the final rating and feedback provided by their Reviewer for the current cycle Appraisal Form. Kindly go through the details and take corresponding actions.
+
+Thank &amp; Regards,
+
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

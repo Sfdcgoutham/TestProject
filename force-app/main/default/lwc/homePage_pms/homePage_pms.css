@@ -1,0 +1,23 @@
+.comboBoxAlign{
+    width: 150px;
+    float: right;
+    margin-top: -1.2%;
+  }
+
+.textAlign{
+  float: right;
+  margin-top: 1.2%;
+  margin-right: 0.5%;
+}
+.sectionCard{
+  --slds-c-accordion-color-border: white;
+  --slds-c-accordion-summary-color-background :whitesmoke!important;
+  /* margin-bottom: 10px; */
+  /* border: 1px solid #00c09e; */
+}
+
+.boxAlign{
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: -1.5rem;
+}

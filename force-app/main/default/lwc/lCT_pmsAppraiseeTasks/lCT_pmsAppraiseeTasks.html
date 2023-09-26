@@ -1,0 +1,76 @@
+<template>
+    <template lwc:if={home}>
+        <!-- if:true={home} -->
+        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections} class="sectionCard">
+            <lightning-accordion-section name="A" label="Appraisals" class="">
+                <div class="slds-p-top_small">
+                    <lightning-datatable key-field="id" data={appraisalFormList} columns={columns} onrowaction={handleRowAction}
+                        hide-checkbox-column="true" resize-column-disabled column-widths-mode="fixed"
+                        class="slds-table_header-fixed_container slds-scrollable_none slds-scrollable_x slds-border_top">
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </template>
+    <template lwc:if={initiatePage}>
+        <!-- if:true={initiatePage} -->
+        <!-- <div class="slds-p-bottom_small">
+            <template lwc:if={initiateButton}>
+                <div class="slds-float_right">
+                    <lightning-button label="Initiate Self Appraisal" slot="actions" variant="brand"
+                        onclick={handleInitiate}></lightning-button>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-float_right">
+                    <lightning-button label="Add Goals" slot="actions" icon-name="utility:add" size="small"
+                        class="slds-button_outline-brand" onclick={handleGoals}>
+                    </lightning-button>
+                </div>
+            </template>
+        </div> -->
+        <div class="slds-p-top_x-large pageHeader">
+            <c-l-c-t_view-appraisal-form initiate={initiateButton} show-buttons detail-view-record={detailViewRecord} onbtnclick={handlePHClick}  onsent={handleSent} eval-record-id={evalRecordId} > </c-l-c-t_view-appraisal-form>
+        
+        </div>
+        
+    </template>
+    <template lwc:if={showForm}>
+        <!-- <c-l-c-t_-kpi-card kpi-data={taskDetails} ref="childCmp"  onchild={childToHome}></c-l-c-t_-kpi-card> -->
+        <c-l-c-t_appraisal-form  onchild={childToHome} eval-record-id={evalRecordId} designation={designation}
+         employee-id={employeeId}  band={band} is-appraisee={isAppraisee} selected-role={selectedRole}
+         is-appraiser={isAppraiser} is-reviewer={isReviewer} selected-status={selectedStatus} ></c-l-c-t_appraisal-form>
+
+   </template>
+   
+    <template lwc:if={fillAppraisal}>
+        <!-- if:true={fillAppraisal} -->
+            <template for:each={functionalData} for:item="item">
+                <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}
+                    class="sectionCard" onsectiontoggle={handleToggleSection} key={item.Id}>
+                    <lightning-accordion-section name="B" label={item.label} class="">
+                        <div class="slds-p-top_small">
+                            <lightning-datatable key-field="Id" data-category={item.label} data={item.value}
+                                columns={columns1} onrowselection={handleRowSelection} selected-rows={selectedKpiIds}>
+                            </lightning-datatable>
+                        </div>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+
+            </template>
+
+    
+        <div class="slds-modal__footer background footer">
+            <lightning-button label="Save KPI's" data-id={id} onclick={getSelectedRec} slot="actions"></lightning-button>
+          </div>
+   
+    </template>
+    <template lwc:elseif={formAppraisal}>
+        <!-- if:true={formAppraisal} -->
+        <c-l-c-t_appraisal-form  eval-record-id={evalRecordId} designation={designation}
+            onchild={childToHome} employee-id={employeeId} footerbuttons={footerbuttons} band={band} is-appraisee={isAppraisee} selected-role={selectedRole}
+            is-appraiser={isAppraiser} is-reviewer={isReviewer} selected-status={selectedStatus}></c-l-c-t_appraisal-form>
+
+    </template>
+   
+</template>

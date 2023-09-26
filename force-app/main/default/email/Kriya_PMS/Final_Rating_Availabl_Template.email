@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Final Rating Available</title>
+</head>
+<body>
+<p>Dear {!AppraiseeName} ,</p>
+<p>Final Rating Available for your Appraisal Form Kindly go through the feedback and comments given by the Reviewer.</p>
+<p>Thank & Regards,</p>
+<p>KRIYA(PMS)</p>
+</body>
+</html>

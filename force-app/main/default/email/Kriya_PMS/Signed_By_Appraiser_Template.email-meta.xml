@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Signed By Appraiser Template</name>
+    <style>none</style>
+    <subject>Signed By Appraiser</subject>
+    <textOnly>Signed By Appraiser
+
+Dear {!AppraiseeName} ,
+
+Your Appraisal Form is signed by {!AppraiserName} Kindly go through the feedback and comments given by the Appraiser and send the form for Review before {!EndDate} by providing corresponding details.
+
+Thank &amp; Regards,
+
+KRIYA(PMS)</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

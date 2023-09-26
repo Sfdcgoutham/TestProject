@@ -1,0 +1,26 @@
+.sectionCard{
+  --slds-c-accordion-color-border: white;
+  --slds-c-accordion-summary-color-background :whitesmoke!important;
+  --slds-c-accordion-heading-font-size: 1.2rem
+  margin-bottom: 10px;
+  /* border: 1px solid #00c09e; */
+}
+:host {
+  --slds-c-accordion-heading-text-color: black;
+  --slds-c-accordion-heading-font-size: 1.2rem
+}
+.stretchButton { width: 1000%;}
+
+.pageHeader{
+  padding:1rem
+}
+.background{
+background-color:whitesmoke!important; ;
+}
+footer { 
+  position: fixed; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  
+}
