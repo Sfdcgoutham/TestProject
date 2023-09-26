@@ -15,6 +15,7 @@
         <members>CCT_PMS_EmailTemplateFrameworkTest</members>
         <members>CCT_PmsPersonalDetailsController</members>
         <members>CCT_PmsPersonalDetailsController_Test</members>
+        <members>CCT_TransferKpi</members>
         <members>OneDriveIntegration</members>
         <members>appframeowrkcls</members>
         <name>ApexClass</name>
@@ -31,6 +32,9 @@
         <members>Contact.Reviewer__c</members>
         <members>Contact.SubBand__c</members>
         <members>EmployeeSalary__c.CTC__c</members>
+        <members>EmployeeSalary__c.Retention_bonus__c</members>
+        <members>EmployeeSalary__c.annual_performance_bonus__c</members>
+        <members>EmployeeSalary__c.annual_performance_bonus__c</members>
         <members>Evaluation__c.AppraisalCycle__c</members>
         <members>Evaluation__c.AppraiserComments__c</members>
         <members>Evaluation__c.AppraiserFeedback__c</members>

@@ -14,6 +14,36 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Retention_bonus__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Retention bonus</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>annual_performance_bonus__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL( performance_bonus_payment_frequency__c, &apos;Annual&apos; ) , ( Monthly_Bonus__c *1),
+IF(ISPICKVAL( performance_bonus_payment_frequency__c, &apos;Half-Yearly&apos; ) , ( Monthly_Bonus__c *2),
+IF( ISPICKVAL( performance_bonus_payment_frequency__c, &apos;Quarterly&apos; ) , ( Monthly_Bonus__c *4),
+IF( ISPICKVAL( performance_bonus_payment_frequency__c, &apos;Monthly&apos; ) ,  ( Monthly_Bonus__c *12),0))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>annual performance bonus</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <recordTypes>
         <fullName>Client_Contact</fullName>
         <active>true</active>
