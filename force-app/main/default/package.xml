@@ -17,7 +17,6 @@
         <members>CCT_PmsPersonalDetailsController_Test</members>
         <members>OneDriveIntegration</members>
         <members>appframeowrkcls</members>
-         <members>lct_TransferKpi</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -409,6 +408,7 @@
         <members>lctMainPage</members>
         <members>lctMyTeam</members>
         <members>lctReviewerPendingAppraisals</members>
+        <members>lct_TransferKpi</members>
         <members>lct_appraisalForms</members>
         <members>lct_appraiserPendingAppraisals</members>
         <members>lct_appraiserPendingAppraisals</members>
@@ -431,9 +431,10 @@
     <types>
         <members>Evaluation__c.Appraisal_Form</members>
         <members>Evaluation__c.Feedback_Form</members>
+        <members>Request__c.requrest1</members>
+        <members>Request__c.requrest1</members>
         <members>Task_Tracker__c.AppraiseeTasks</members>
         <members>Task_Tracker__c.KPI</members>
-         <members>Request__c.requrest1</members>
         <name>RecordType</name>
     </types>
     <types>
