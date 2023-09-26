@@ -12,7 +12,6 @@
         <members>CCT_PMSReviewer</members>
         <members>CCT_PMSReviewer_Test</members>
         <members>CCT_PMS_EmailTemplateFramework</members>
-        <members>CCT_PMS_EmailTemplateFrameworkTest</members>
         <members>CCT_PmsPersonalDetailsController</members>
         <members>CCT_PmsPersonalDetailsController_Test</members>
         <members>CCT_TransferKpi</members>
@@ -183,7 +182,6 @@
         <members>PMS_KPI_Fields.Appraisee_Initiated_Obj_And_Key_Res</members>
         <members>PMS_KPI_Fields.Appraisee_Initiated_Self_Rating</members>
         <members>PMS_KPI_Fields.Appraisee_Initiated_Weightage</members>
-        <members>PMS_KPI_Fields.Appraisee_PWR_Appraiser_Feedback</members>
         <members>PMS_KPI_Fields.Appraisee_PWR_Challenges</members>
         <members>PMS_KPI_Fields.Appraisee_PWR_Justification</members>
         <members>PMS_KPI_Fields.Appraisee_PWR_KPI_Name</members>
@@ -393,7 +391,6 @@
     <types>
         <members>Evaluation__c-Evaluation Layout</members>
         <members>Evaluation__c-Feedback Layout</members>
-        <members>Payslip__c.FreeLancer_Page_Lageout</members>
         <members>Task_Tracker__c-Appraisee Tasks</members>
         <members>Task_Tracker__c-KPI</members>
         <name>Layout</name>
@@ -428,14 +425,6 @@
     <types>
         <members>PMS</members>
         <name>Network</name>
-    </types>
-    <types>
-        <members>PMS Profile</members>
-        <name>Profile</name>
-    </types>
-    <types>
-        <members>PMS Profile</members>
-        <name>Profile</name>
     </types>
     <types>
         <members>Evaluation__c.Appraisal_Form</members>
